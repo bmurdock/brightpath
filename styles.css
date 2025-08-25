@@ -1,0 +1,566 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    color: #222222;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* Typography */
+.heading {
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+}
+
+.section-heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #01497b;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    background-color: #01497b;
+    color: #ffffff;
+    text-decoration: none;
+    border: 2px solid #01497b;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn:disabled {
+    background-color: rgba(1, 73, 123, 0.7);
+    pointer-events: none;
+}
+
+/* Phone Icon */
+.phone-icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    background-color: #01497b;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20.435' height='20.435'%3E%3Cpath data-name='Icon awesome-phone-alt' d='m19.852 14.441-4.47-1.916a.958.958 0 0 0-1.118.275l-1.98 2.419a14.794 14.794 0 0 1-7.071-7.072l2.419-1.98a.956.956 0 0 0 .275-1.117L5.991.579a.964.964 0 0 0-1.1-.555L.742.982A.958.958 0 0 0 0 1.916a18.518 18.518 0 0 0 18.52 18.52.958.958 0 0 0 .934-.742l.958-4.151a.969.969 0 0 0-.559-1.1z'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: contain;
+    transition: 0.2s;
+}
+
+/* Header Styles */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 12px 0;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    flex-grow: 0;
+}
+
+.brand-text {
+    font-family: "Rubik", sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #01497b;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.header-phone {
+    display: none;
+}
+
+.header-phone .phone-link {
+    display: inline-flex;
+    align-items: center;
+    color: #01497b;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.header-phone .phone-icon {
+    background-color: #01497b;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hamburger .line {
+    width: 30px;
+    height: 4px;
+    background-color: #01497b;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger.is-active .line:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.is-active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.is-active .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Hero Section */
+.hero {
+    padding: 60px 0;
+    background-color: #ffffff;
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 720px;
+    margin-bottom: 40px;
+}
+
+.hero-heading {
+    font-family: "Rubik", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #01497b;
+    margin-bottom: 30px;
+}
+
+.hero-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444444;
+    margin-bottom: 30px;
+}
+
+.hero-phone {
+    margin-top: 20px;
+}
+
+.phone-btn .phone-icon {
+    background-color: #ffffff;
+}
+
+.hero-graphic {
+    width: 100%;
+    max-width: 575px;
+    height: 250px;
+    margin: 0 auto;
+    background-color: #ededed;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #01497b 0%, #0168b5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.hero-image-placeholder::before {
+    content: "Professional Financial Services";
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.gallery-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.section-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.faq-item {
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #01497b;
+}
+
+.faq-question {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #01497b;
+    margin-bottom: 15px;
+}
+
+.faq-answer {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555555;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background-color: #01497b;
+    color: #ffffff;
+}
+
+.contact-container {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-heading {
+    font-family: "Rubik", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.contact-text {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.contact-phone .phone-link {
+    display: inline-flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contact-phone .phone-icon {
+    background-color: #ffffff;
+}
+
+.contact-form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form-container {
+    background-color: #fbfbfb;
+    color: #222222;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 7px -2px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 600px;
+}
+
+.contact-form-text {
+    font-size: 20px;
+    line-height: 1.3;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #222222;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #01497b;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    margin-top: 15px;
+    align-self: center;
+    min-width: 200px;
+}
+
+.btn-contact-caption {
+    transition: opacity 0.2s ease;
+}
+
+/* Loading Animation */
+.lds-dual-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    transform: translate(-50%, -53%);
+    transition: opacity 0.2s ease;
+}
+
+.lds-dual-ring.is-active {
+    display: inline-block;
+    opacity: 1;
+}
+
+.lds-dual-ring::after {
+    content: " ";
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn.is-loading .lds-dual-ring {
+    opacity: 1;
+}
+
+.btn.is-loading .btn-contact-caption {
+    opacity: 0;
+}
+
+/* Footer */
+.footer {
+    padding: 30px 0;
+    background-color: #222222;
+    color: #dfdfdf;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.footer-text {
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .header-container {
+        padding: 0 20px;
+    }
+    
+    .brand-text {
+        font-size: 24px;
+    }
+    
+    .hero-container {
+        padding: 0 20px;
+    }
+    
+    .hero-heading {
+        font-size: 28px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+    }
+    
+    .hero-graphic {
+        height: 200px;
+    }
+    
+    .section-heading {
+        font-size: 24px;
+    }
+    
+    .contact-form-container {
+        padding: 20px;
+        margin: 0 20px;
+    }
+    
+    .contact-form-text {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-graphic {
+        height: 300px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header-phone {
+        display: flex;
+    }
+    
+    .hamburger {
+        display: none;
+    }
+    
+    .hero-container {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        gap: 60px;
+    }
+    
+    .hero-content {
+        flex: 1;
+        margin-bottom: 0;
+    }
+    
+    .hero-graphic {
+        width: 920px;
+        height: 580px;
+        flex-shrink: 0;
+    }
+    
+    .contact-container {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+    }
+    
+    .contact-info {
+        flex: 1;
+        text-align: left;
+        margin-bottom: 0;
+    }
+    
+    .contact-form-wrapper {
+        flex: 1;
+    }
+    
+    .contact-form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .contact-form input:not([type="submit"]) {
+        width: calc(50% - 10px);
+    }
+    
+    .contact-form textarea {
+        width: 100%;
+    }
+    
+    .submit-btn {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 1400px) {
+    .hero-graphic {
+        width: 1000px;
+        height: 620px;
+    }
+}
