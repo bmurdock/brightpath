@@ -24,11 +24,13 @@
                 <ul class="nav-list">
                     <li><a href="../index.html" class="nav-link">Home</a></li>
                     <li class="nav-dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">Services</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="expert-bookkeeping.html" class="dropdown-link active">Expert Bookkeeping</a></li>
-                            <li><a href="trustworthy-accounting-services.html" class="dropdown-link">Accounting Services</a></li>
-                        </ul>
+                        <details class="service-menu">
+                            <summary class="nav-link dropdown-toggle">Services</summary>
+                            <ul class="dropdown-menu">
+                                <li><a href="expert-bookkeeping.html" class="dropdown-link active">Expert Bookkeeping</a></li>
+                                <li><a href="trustworthy-accounting-services.html" class="dropdown-link">Accounting Services</a></li>
+                            </ul>
+                        </details>
                     </li>
                     <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -39,11 +41,11 @@
                     801-706-4092
                 </a>
             </div>
-            <div class="hamburger" id="hamburger">
+            <button type="button" class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-controls="nav" aria-expanded="false">
                 <span class="line"></span>
                 <span class="line"></span>
                 <span class="line"></span>
-            </div>
+            </button>
         </div>
     </header>
 
@@ -207,28 +209,20 @@
             </div>
             
             <div class="service-contact-form-wrapper">
-                <form class="contact-form" id="contactForm">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="tel" name="phone" placeholder="Your Phone">
-                    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/Hollie@brightpathaccounting.com" method="POST">
+                    <input type="hidden" name="_subject" value="New BrightPath Accounting inquiry">
+                    <input type="text" name="name" aria-label="Your name" placeholder="Your Name" autocomplete="name" required>
+                    <input type="email" name="email" aria-label="Your email" autocomplete="email" placeholder="Your Email" required>
+                    <input type="tel" name="phone" aria-label="Your phone" autocomplete="tel" placeholder="Your Phone">
+                    <textarea name="message" aria-label="Your message" placeholder="Your Message" rows="6" required></textarea>
                     <button type="submit" class="btn submit-btn">
                         <span class="btn-contact-caption">Send</span>
-                        <div class="lds-dual-ring"></div>
                     </button>
                 </form>
+                <p class="contact-form-note">Messages are processed by FormSubmit. You can also email <a href="mailto:Hollie@brightpathaccounting.com">Hollie@brightpathaccounting.com</a> directly.</p>
             </div>
         </div>
         
-        <div class="service-location">
-            <div class="location-image">
-                <img src="https://cdn.zarlasites.com/image/9da575a63626647df23ca9a3fe3e01e1bf8562393878051834c1f04c5c5d9f12/mobile-575" alt="Woman computing with calculator">
-            </div>
-            <div class="location-info">
-                <h3>BrightPath Accounting</h3>
-                <a href="http://maps.google.com/?q=" class="btn location-btn">Get directions</a>
-            </div>
-        </div>
     </section>
 
     <!-- Footer -->

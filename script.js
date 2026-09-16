@@ -3,71 +3,52 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
     
+    const serviceMenu = document.querySelector('.service-menu');
+
     if (hamburger && nav) {
+        const closeNavigation = function() {
+            hamburger.classList.remove('is-active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('is-active');
+            if (serviceMenu) serviceMenu.open = false;
+        };
+
         hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('is-active');
-            nav.classList.toggle('is-active');
+            const expanded = hamburger.getAttribute('aria-expanded') !== 'true';
+            hamburger.classList.toggle('is-active', expanded);
+            hamburger.setAttribute('aria-expanded', String(expanded));
+            nav.classList.toggle('is-active', expanded);
+            if (!expanded && serviceMenu) serviceMenu.open = false;
         });
-        
-        // Close menu when clicking outside
+
         document.addEventListener('click', function(e) {
             if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
-                hamburger.classList.remove('is-active');
-                nav.classList.remove('is-active');
+                closeNavigation();
             }
         });
-        
-        // Close menu when clicking on a nav link (mobile)
-        const navLinks = nav.querySelectorAll('.nav-link, .dropdown-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth < 1200) {
-                    hamburger.classList.remove('is-active');
-                    nav.classList.remove('is-active');
-                }
-            });
-        });
-    }
 
-    // Contact form functionality
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = contactForm.querySelector('.submit-btn');
-            const btnCaption = submitBtn.querySelector('.btn-contact-caption');
-            const loadingSpinner = submitBtn.querySelector('.lds-dual-ring');
-            
-            // Show loading state
-            submitBtn.classList.add('is-loading');
-            loadingSpinner.classList.add('is-active');
-            btnCaption.style.opacity = '0';
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                message: formData.get('message')
-            };
-            
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                // Reset loading state
-                submitBtn.classList.remove('is-loading');
-                loadingSpinner.classList.remove('is-active');
-                btnCaption.style.opacity = '1';
-                
-                // Show success message
-                alert('Thank you for your message! We will get back to you soon.');
-                
-                // Reset form
-                contactForm.reset();
-            }, 2000);
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeNavigation);
         });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            if (serviceMenu && serviceMenu.open) {
+                serviceMenu.open = false;
+                serviceMenu.querySelector('summary').focus();
+            } else if (nav.classList.contains('is-active')) {
+                closeNavigation();
+                hamburger.focus();
+            }
+        });
+
+        if (serviceMenu) {
+            serviceMenu.addEventListener('focusout', function(e) {
+                if (!serviceMenu.contains(e.relatedTarget)) serviceMenu.open = false;
+            });
+        }
+
+        window.matchMedia('(min-width: 1200px)').addEventListener('change', closeNavigation);
     }
 
     // Smooth scrolling for phone links
