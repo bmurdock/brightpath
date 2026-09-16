@@ -14,7 +14,7 @@ Open `http://localhost:8000`. GitHub Pages is configured to publish the root of 
 
 ## Contact email
 
-All three contact forms use a native HTTPS POST to FormSubmit, addressed to `Hollie@brightpathaccounting.com`. They submit the visitor's name, email, optional phone number, and message with the subject `New BrightPath Accounting inquiry`. FormSubmit handles the next page and CAPTCHA. The site does not display a simulated success message or clear the form on a timer. Submission also works without JavaScript.
+All three contact forms use a native HTTPS POST to FormSubmit, addressed to `Hollie@brightpathaccounting.com`. They submit the visitor's name, email, optional phone number, and message with the subject `New BrightPath Accounting inquiry`. Service pages also include a hidden `service` field identifying Bookkeeping or Accounting. FormSubmit handles the next page and CAPTCHA. The site does not display a simulated success message or clear the form on a timer. Submission also works without JavaScript.
 
 This integration is implemented locally, but recipient activation and actual inbox delivery have **not been verified**. Before treating the form as operational:
 
@@ -45,6 +45,6 @@ node --check script.js
 git diff --check
 ```
 
-The tests start a temporary local server and close it afterward. External requests are intercepted; no real email or SMS is sent. They cover desktop and mobile navigation, keyboard disclosure controls, contact form POSTs with and without JavaScript, removed directions, and contact prompt color.
+The tests start a temporary local server and close it afterward. External requests are intercepted; no real email or SMS is sent. They cover desktop and mobile navigation, keyboard disclosures, skip links and header-aware hashes, reduced motion, visible focus, form labels and validation, and contact form POSTs with and without JavaScript. They also check service inquiry context, mobile navigation without JavaScript, and horizontal overflow at representative widths.
 
 Also inspect the three pages visually at mobile and desktop widths. Real provider activation, email receipt, and production deployment remain separate acceptance checks.
